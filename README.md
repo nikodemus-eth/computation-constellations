@@ -2,6 +2,14 @@
 
 A local-first architecture authoring and explanation workspace. The application never executes the systems represented by its diagrams.
 
+## See it in action
+
+A support-routing example shows five components, a routine path, and an exception path to a human reviewer.
+
+![Support request routing: architecture canvas, available stars, and constellation details](docs/images/support-routing-overview.jpg)
+
+[Take the illustrated tour](docs/visual-tour.md) · [Download the editable example](docs/examples/support-request-routing.drawio)
+
 ## Run
 
 Requires Node.js 22 or later. No package installation, API key, account, or external service is needed.
