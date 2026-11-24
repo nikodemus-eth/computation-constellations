@@ -1,0 +1,250 @@
+Computation Constellations Work Specification
+Candidate specification for architecture, explanation and documentation
+Prepared for Nikodemus Corvus and Bee Frontier • Draft 0.3 • Codex specification: agent authoring, version lineage and human finalization
+This document fills the supplied Agentic Work Specification Template for the proposed Computation Constellations work surface. It retains the template’s twelve sections and replaces the sample document-ingestion scenario with the constellation concept. It is a candidate specification, not an approval to build, deploy, spend money or connect production systems.
+Established direction: an outer rectangle contains the available stars; an inner rectangle is the active components area for a use-case constellation. Authors drag stars into the active area and draw connectors to describe an architecture, much like Visio. Other stars remain outside the inner rectangle. A star may represent one component or a group. Stars and connectors expose metadata and supporting links. The work surface serves both architectural design and explanation. Building systems, integrations or workflows is outside scope; the work surface itself remains a proposal.
+1 Product Definition
+1.1 Product Identity
+Computation Constellations is a proposed visual authoring and review work surface for describing computational capabilities, components and relationships. A versioned catalog supplies the available stars within an outer rectangle. Each use case has an inner active area, selected stars, documented connectors and its own saved layout. Stable identities are retained across views; positions need not be identical across use cases.
+1.2 Organizational Context
+Business unit: initially a personal design and learning project led by Nikodemus Corvus. DCBS education and documentation are potential applications, not an approved agency deployment.
+Problem: separate workflow diagrams can make shared components hard to recognize and leave policies, context and implementation evidence disconnected from the visual explanation.
+Current process: concept discussion, context documents and an initial candidate master map. No completed application or measured workflow baseline has been established.
+Desired outcome: a reader can architect, follow, compare and explain related workflows using a shared vocabulary of stars and connectors, then inspect supporting detail without confusing a diagram with a working system.
+1.3 Core Purpose
+The proposed work surface supports architectural design, inspection, education and documentation. It retains stable identities, distinguishes individual stars from grouped systems, and exposes metadata for stars and connectors. Authors intentionally place active stars and connections; explanation mode preserves the saved arrangement while showing intended behavior separately from verified implementation or observed execution.
+Example: an author drags input, deterministic decision rules, action service and record store stars into the inner rectangle and draws their proposed relationships. Other available stars remain outside it. A guided walkthrough explains the selected path and exceptions. Neither constructing the diagram nor explaining it creates or executes the represented system.
+1.4 Canonical Operating Principle
+Computation Constellations describes and explains a system. External services execute operational work. ACDS may mediate inference where an explicitly designed integration calls for it. Humans review map releases and grant authority through the relevant real systems. A line, badge or policy link never grants permission by itself.
+2 System Boundaries
+2.1 In Scope
+Describe a versioned star catalog and use-case diagrams with stable star and connector identifiers, group membership, annotations and saved layout.
+Specify an outer available-star area and an inner active components area. Describe drag-in placement, drawing connectors and switching between saved use-case diagrams; dimming may aid explanation but is not the sole interaction.
+Inspect stars and flows through searchable metadata and contextual links, including policies, rights, context documents and technical diagrams.
+Show nested groups, typed directional connectors, conditions, exception paths, ownership and evidence status. Distinguish deterministic rules and conventional software from probabilistic models; a mixed group identifies its constituent types.
+Provide a guided step view for teaching, plus a keyboard-accessible list and text route description.
+Validate structural references; save locally or in an approved destination; export editable, visual and text representations; preserve review and change records.
+2.2 Out of Scope
+Building is outside the scope of this work. This specification describes a proposed work surface and diagrams of systems; it does not implement the work surface, create or configure integrations, generate deployable workflows, or execute represented actions. It does not discover production networks, collect camera feeds, call models, provision credentials, change permissions or connect to live data. Connector descriptions are documentation, not executable adapters. References to validation, saving, export and tests below are proposed behavior and evaluation criteria, not claims of existing software.
+3 Governance Invariants
+Source documents remain authoritative and agent-authored content retains provenance. User decisions: agents may author diagrams; versions have types, illustrated by Ver 1.11.AI and Ver 1.11.HUM; an agent-authored diagram cannot finalize without human approval; human-authored or human-approved diagrams may finalize. Authorship, human approval, finalization and implementation evidence are separate facts. The mechanisms below are proposed for Codex, not a claim of implemented functionality.
+A star keeps its identity when its label changes. Retired identities are not silently reused. Overlays refer to a declared master-map version.
+Changing a use-case layout never changes a star’s catalog identity or another use case’s saved arrangement and never grants an external capability. Catalog changes and diagram changes produce reviewable revisions. No automatic placement or rearrangement is assumed.
+Possible, implemented, observed and unverified connections are visibly distinct. Review approval does not automatically convert a proposed connection into an observed one.
+A rights reference records a claim or requirement. Actual enforcement belongs to the identified backend or executing service.
+Record material edits, imports, review decisions and exports with the relevant revision. Do not claim a tamper-proof audit trail for ordinary editable local files.
+Safe exports remove excluded content, metadata and embedded editable source. Hiding a layer or dimming a connection is not redaction.
+Imported files and linked content are untrusted. No scripts, commands, external entity expansion or automatic network retrieval shall run merely because a map is opened.
+4 Roles and Authorities
+Role
+Authority
+Cannot do
+Author
+Create and edit draft maps, annotations and overlays.
+Silently change an approved revision or claim evidence without a source.
+Reviewer or owner
+Accept, reject or return a specific revision for changes. One person may hold both roles in the pilot.
+Grant production access merely by approving the diagram.
+Reader or learner
+Inspect approved views, follow links they can access and use guided walkthroughs.
+Edit a protected master through view controls.
+Work surface
+Validate structure, render views, preserve revisions and produce requested exports.
+Assert implementation truth or external authorization from visual appearance.
+Agent author
+Create and revise diagram drafts, including stars, connectors, layouts, annotations and walkthroughs, within an authorized diagram scope. Submit a specific revision for human review; no represented system is built or executed.
+Provide human approval, impersonate a human, overwrite prior revisions, invent evidence or bypass the finalization gate.
+
+Proposed enforcement: derive actor identity and kind from trusted authentication, not filenames, suffixes, prompts or client-supplied flags. Apply authorization at the authoritative persistence/finalization boundary for UI, API, agent tools and imports. Hosted enforcement belongs server-side; an editable local file alone cannot prove human approval. Unverifiable authorship/approval fails closed for finalization while allowing draft inspection. Identity provider and detailed roles remain design choices.
+5 Core Workflow
+5.1 Intake
+Accept an existing map, a new-map action or an agent-authored diagram submission. Agent authoring is scoped to permitted diagram/catalog IDs, base revision, allowed edits and source references. Preserve imported bytes and lineage; imported approval and author claims must be verified rather than trusted. A URL is a reference, not permission to crawl. Authoring creates diagram content only, never represented integrations or workflows.
+5.2 Retrieval
+Capture source location when known, intake identifier, timestamp, media type and a content hash for imported files. Record which parser/profile version was used. Retrieve remote content only after a deliberate supported action and applicable access checks. If a link cannot be opened, retain it with an unavailable or unchecked status rather than inferring its contents.
+5.3 Normalization
+Proposed normalization represents a graph of catalog stars, typed connectors, groups, annotations and use cases. It keeps catalog identity separate from each use case’s membership, active-area bounds and authored positions. Preserve original input; validate identifiers, endpoints, group cycles and references. Unrecognized fields must be preserved or clearly reported, not silently discarded.
+Candidate interchange: uncompressed draw.io XML for the editable pilot, SVG for visual viewing and text for accessible route descriptions. A documented constellation profile must define the meaning of custom fields. GraphML is an alternative for graph exchange. JSON examples in this specification describe data fields; they do not establish JSON as the selected storage format.
+5.4 Inference
+No inference is required to describe or use the proposed work surface. Diagram selection, structural validation and export are ordinary deterministic operations. Represented deterministic rules engines, DBMSs and conventional services are distinct from probabilistic models; a decision tree is not automatically a rules engine, so its actual behavior should be labeled. ACDS may appear where a documented architecture calls for it, but no ACDS or model integration is created by this work.
+5.5 Artifact Generation
+Proposed saves create immutable diagram revisions with unique IDs, parent revision IDs, author identity/type, timestamp, change summary and provenance. Review and finalization are separately attributable events. Exports show version, authorship, approval and final status without treating labels as authority. Report provenance loss on round-trip and revalidate imported final claims. Revision content includes layout, connectors, metadata, walkthrough and pinned catalog dependencies.
+5.6 Review Gate
+User rule: agent-authored content needs human approval before finalization; human-authored content may finalize without separate reviewer approval. Proposed workflow: save draft → request review → approve or return changes → explicitly finalize an eligible revision. Eligibility is not automatic finalization. An authorized human performs finalization under the proposed default. Whether an agent may invoke it after valid human approval is an open decision. Any later content edit creates a new draft requiring renewed human review before finalization, without changing the prior final revision.
+6 Requirement Catalog
+The following describe candidate work-surface behavior and review criteria. They are specifications only; no build is requested or authorized.
+REQ 001 Available and active areas
+The proposed work surface shows an outer rectangle of available stars and an inner active components area. Authors can drag stars into the active area and arrange them intentionally. Each use case saves its own positions and membership while retaining catalog identities.
+Acceptance criteria: Given two saved use cases, switching between them restores each authored arrangement and active membership without changing the catalog or the other use case. No automatic layout is assumed.
+REQ 002 Persistent identity and grouping
+The system shall assign unique identifiers to stars, flows and overlays and support grouped stars with typed members.
+Acceptance criteria: Given a renamed or grouped star, when an existing overlay opens, then its references still resolve; a cyclic group or duplicate identifier is rejected.
+REQ 003 Realistic connections and visible state
+Authors can draw plausible connectors between selected stars. Each connector records endpoints, direction, relationship kind and evidence status. Its diagram identity is distinct from any real integration or interface it describes.
+Acceptance criteria: Given a proposed path, when a reader inspects it, then its intended relationship and unverified status are visible without implying it is deployed.
+REQ 004 Use case overlays
+Use-case diagrams distinguish active stars and connectors inside the inner rectangle from other available stars outside it. Explanation mode may highlight the current step and dim other paths while retaining the saved layout.
+Acceptance criteria: Given a selected use case, the active membership and available stars are clear without relying on color alone. Moving a star into or out of the active area updates diagram membership; affected connectors are flagged for explicit resolution, not silently deleted. Comparison identifies shared and different components.
+REQ 005 Metadata inspection
+Stars and connectors expose owner, description, source and links for policies, rights, context and supporting diagrams. Connector details include interface/protocol, operation, input/output contract references, data or control direction, transformation/mapping, triggering condition, access and permission references, enforcement point, failure/timeout/retry semantics, and evidence/version status. These are descriptions, not live settings; unknown values are explicit and no credentials are embedded.
+Acceptance criteria: Selecting a connector to a deterministic system exposes its operation, contracts, access references and failure behavior separately from policy claims and verification evidence. The same inspector distinguishes a deterministic rule result from a probabilistic model output without implying either is running.
+REQ 006 Detail and education
+The system shall provide nested detail and an ordered walkthrough that can reference the same star more than once.
+Acceptance criteria: Given a triage walkthrough, when the reader advances, then the current step and relevant path are highlighted without moving the map; returning from a submap restores orientation.
+REQ 007 Accessible navigation
+The work surface shall provide keyboard operation, visible focus, labels beyond color and equivalent searchable star and flow lists.
+Acceptance criteria: Given keyboard-only navigation, when the reader selects a star or flow, then the same information and editing actions are reachable. A text export states path order, conditions and status.
+REQ 008 Validation and versioning
+The system shall validate references and preserve immutable diagram revisions and parent lineage separately from display numbering. User examples are 1.11.AI and 1.11.HUM. Proposed suffix meaning is revision authorship; human approval is a separate badge/event, so approval does not erase AI origin or relabel it HUM. Number increment rules, mixed-authorship labeling and exact suffix semantics remain open. Unresolved mixed/imported provenance is review-required, not assumed human-authored.
+Acceptance criteria: renaming a file or suffix cannot change trusted authorship or finalization eligibility. Approving an AI revision records human approval against that exact revision without erasing origin. A content edit creates a child draft with parent lineage but no inherited approval/finality. Changes to catalog references require validation.
+REQ 009 Evidence and freshness
+The system shall store evidence references and verification dates separately from review approval and display unknown or stale status.
+Acceptance criteria: Given an evidence record removed or expired under a configured review rule, when viewed, then the map flags the affected claim; it does not display current verification without supporting evidence.
+REQ 010 Portable round trip
+The chosen editable format shall preserve IDs, coordinates, groups, flow types, metadata and overlay membership through the declared supported workflow.
+Acceptance criteria: Given the pilot file, when edited in the designated external editor and reopened, then a semantic comparison confirms preservation or clearly reports loss before replacing the original.
+REQ 011 Safe import and export
+The system shall reject unsafe file constructs and produce physically redacted outputs for limited audiences.
+Acceptance criteria: Given malicious XML, script-bearing content or excluded metadata, when imported or exported, then no payload executes, no unapproved fetch occurs and excluded content is absent from the output including embedded source.
+REQ 012 Changes and recovery
+Proposed finalization requires an atomic authorization and validation check. An agent-authored revision needs a valid human approval bound to diagram ID, immutable revision ID and content digest including pinned dependencies. Human-authored revisions need verified human authorship. The authorized human finalizer acts explicitly. Record actor, timestamp, target and qualifying approval where required; suffixes and mutable approved flags never grant permission.
+Acceptance criteria: reject an unapproved agent draft through every finalization entry point. Accept an exact AI revision with valid human approval, or a verified human-authored revision, when an authorized human explicitly finalizes and validation passes. Later content edits require renewed review under the proposed policy. Reject stale/revoked approvals, digest mismatches, forged author flags and concurrent content changes. Failed saves/finalization leave prior state intact.
+7 Golden Path
+Golden Path Agentic Triage Walkthrough
+Objective: author and review a diagram explaining deterministic triage rules, the action they select and the record destination. This is an illustrative architecture and explanation, not a working integration or a claim that DCBS has implemented it.
+User flow: a human or agent authors the diagram. An agent saves a draft such as 1.11.AI and requests review of that exact revision. A human inspects the diagram and changes, approves and explicitly finalizes it. A verified human-authored revision such as 1.11.HUM may instead be finalized without separate reviewer approval. Neither path executes the depicted workflow.
+Proposed work-surface behavior: retain catalog identities and the authored use-case arrangement; leave unused stars outside the inner rectangle; expose connector metadata and unverified status; flag diagram inconsistencies; preserve review decisions. This specifies no automatic layout or operational execution.
+Example route: request input → deterministic rules → action service → record store → review or notification. A conditional branch can describe a probabilistic classifier when rules cannot resolve a case; it is a separate star with its own output interpretation. A connector to the record store can document an insert operation, record-schema reference, write-permission reference and failure path. Human approval and exceptions are documented where relevant. No requests, database writes or model calls are performed.
+8 DASL Contract
+The template labels this section DASL. The candidate documentation contract below describes diagram preparation, not an executable integration contract. It claims no independently verified DASL conformance. Field names remain illustrative.
+contract_id: CC-OVERLAY-REVIEW-001
+contract_name: PrepareUseCaseConstellation
+input:
+  master_id: CC-MASTER-001
+  master_revision: 0.1
+  overlay_id: CC-TRIAGE-001
+  selected_star_ids: [S-INPUT, S-DECISION, S-ACTION, S-RECORD]
+  selected_flow_ids: [F-001, F-002, F-003]
+  walkthrough_steps: ordered references and explanations
+output:
+  overlay_revision: next draft revision
+  validation_report: errors and warnings
+  review_status: draft or review_ready
+  revision_id: immutable diagram revision identifier
+  author_kind: trusted human or agent attribution
+invariants:
+  - original import and prior approved revision remain intact
+  - selected IDs resolve within the declared master revision
+  - each use case retains its authored layout and catalog references
+  - proposed connections remain visibly proposed
+  - no external execution or authority is granted
+failure:
+  invalid_reference: reject save as review_ready and explain
+  unsafe_import: reject input without execution or network fetch
+  storage_error: preserve prior accepted save and report failure
+approval:
+  documentation_release: authorized human finalization
+  agent_revision: matching human approval required
+  later_content_edit: new draft and renewed review
+  operational_permission: outside this contract
+9 Data Structure
+This proposed record separates identity, revision lineage, authorship, review/finalization events, layout and evidence. It is not a selected storage format. IDs are synthetic; null timestamp/digest make this an incomplete draft, not finalizable content.
+{
+  "profile_version": "0.3-draft",
+  "diagram_id": "CC-TRIAGE-001",
+  "revision_id": "REV-EXAMPLE-011",
+  "parent_revision_ids": ["REV-EXAMPLE-010"],
+  "version_label": "1.11.AI",
+  "author": {"principal_id":"AGENT-EXAMPLE","kind":"agent"},
+  "contributors": [],
+  "created_at": null,
+  "change_summary": "Illustrative agent-authored draft",
+  "provenance_refs": [],
+  "content_digest": null,
+  "review_events": [],
+  "finalization_events": [],
+  "master_id": "CC-MASTER-001",
+  "master_revision": "0.1",
+  "stars": [
+    {"id":"S-DECISION", "label":"Deterministic rules",
+     "type":"deterministic_rules",
+     "group_id":null, "owner":null,
+     "evidence_status":"proposed", "links":[]},
+    {"id":"S-ACTION", "label":"Action service",
+     "type":"conventional_service",
+     "group_id":null, "owner":null,
+     "evidence_status":"unverified", "links":[]}
+  ],
+  "flows": [{
+    "id":"F-002", "source":"S-DECISION", "target":"S-ACTION",
+    "kind":"control", "condition":"decision permits action",
+    "evidence_status":"proposed", "last_verified":null,
+    "policy_refs":[], "required_permission":null,
+    "enforcement_point":null, "evidence_refs":[],
+    "interface_ref":null, "operation":null,
+    "input_contract_ref":null, "output_contract_ref":null,
+    "mapping_ref":null, "access_ref":null,
+    "failure_behavior":null, "retry_policy_ref":null,
+    "interface_version":null
+  }],
+  "overlays": [{
+    "id":"CC-TRIAGE-001", "master_revision":"0.1",
+    "active_star_ids":["S-DECISION","S-ACTION"],
+    "active_area":{"x":100,"y":100,"width":800,"height":500},
+    "placements":[{"star_id":"S-DECISION","x":250,"y":250},
+                  {"star_id":"S-ACTION","x":600,"y":250}],
+    "active_flow_ids":["F-002"], "review_status":"draft",
+    "steps":[{"order":1,"flow_id":"F-002",
+              "text":"Pass the decision to the action service."}]
+  }]
+}
+The outer rectangle holds the catalog; each use case retains its active membership and layout. Proposed review events contain event ID, diagram ID, revision ID, content digest, decision (approve, reject or withdraw), verified human principal and timestamp. Finalization events identify the same immutable target, authorized finalizer, timestamp and qualifying approval event when required. Approval of another revision/digest is invalid. Layout, metadata, connector, walkthrough and pinned-dependency edits create new content; view preferences do not. Review events do not rewrite reviewed content. Known agent/model/run references may supplement provenance without embedding credentials or secrets.
+10 Screen Specification
+Capture Screen
+Purpose: open a map or create a draft. Controls: choose local file, select supported profile, enter a title, inspect import preview and preserve original source. Show unsupported features and unsafe content before acceptance. Do not fetch linked documents automatically.
+Processing Screen
+Purpose: make parsing and validation understandable. Show stages for source capture, safe parsing, ID and group checks, overlay-reference checks and save readiness. Present errors with the affected IDs and a safe cancellation option. No fictitious inference stage is displayed when no AI is used.
+Review Screen
+Purpose: retain the outer available-star rectangle, inner active area, intentional placement, connector inspection and guided explanation. Add version label, trusted authorship, lineage, change comparison and separate approval/final status. Humans approve/reject the exact displayed revision; explain why finalization is blocked and recheck permissions/target when invoked. A disabled button is not enforcement. No automatic layout or operational execution is specified.
+Library Screen
+Purpose: find masters, overlays and revisions by title, type, owner or status. Show which master revision an overlay uses and whether validation is current. Opening a historical version must not silently replace the working version. Offer editable, visual and text exports with a redaction preview and an explicit statement of what will be included.
+11 Test Catalog
+Unit Tests
+UT 01: renaming a star preserves its ID and all valid references.
+UT 02: switching use cases restores their respective authored positions and active membership without changing catalog identities or another view.
+UT 03: duplicate IDs, dangling connector endpoints, cyclic groups and incompatible catalog references are flagged; moving a star out of the active area requires explicit resolution of affected connectors.
+UT 04: authorship, approval, finality and implementation evidence stay independent. Human approval does not relabel AI origin as HUM; changing the suffix does not change trusted authorship.
+UT 05: redaction removes excluded metadata and embedded content from the serialized output.
+Integration Tests
+IT 01: author a diagram by dragging stars into the inner area, drawing and documenting connectors, then review, export and reopen with relationships and authored layout intact. This tests a diagram lifecycle, not system integration.
+IT 02: round-trip through the chosen external editor and compare IDs, coordinates, groups, annotations and overlay membership. Record unsupported behavior rather than claiming universal compatibility.
+IT 03: fail or cancel saving/exporting and confirm the previous accepted file remains usable and the UI reports the failure.
+IT 04: agent draft → human review of exact revision → approval → explicit finalization. Also test verified human-authored finalization without separate review. Later edits create child drafts requiring renewed review; prior final revisions remain unchanged. Reimport never trusts unverifiable final claims.
+Red Team Tests
+RT 01: map labels or linked text containing instructions are treated as content, never as authority.
+RT 02: XML external entities, script-bearing SVG, unsafe URLs, path traversal and oversized input cannot execute or trigger unapproved access.
+RT 03: a hidden layer, removed node, comment or embedded draw.io source cannot leak excluded content in a redacted export.
+RT 04: attempt finalization via UI, API, agent tools and import with no approval, forged HUM suffix, client-supplied human identity, another revision’s approval, withdrawn approval, digest mismatch and concurrent edits. Reject each invalid attempt without changing final state. Test the authoritative persistence/service boundary, not only UI controls.
+UI Tests
+UI 01: keyboard-only users can place available stars in the active area, reposition them, create/select connectors and inspect metadata with visible focus.
+UI 02: labels distinguish available versus active membership, deterministic versus probabilistic behavior, and proposed versus observed status without relying only on color.
+UI 03: switching use cases preserves orientation; nested detail has an obvious return path. Review shows exact revision, change comparison, origin and human approval/final status separately.
+UI 04: a reader follows success and exception routes and locates connector operation, input/output contracts, access references, failure behavior, owner and evidence without interpreting the diagram as executable.
+UI 05: compare three materially different use cases, including one without an LLM, against conventional diagrams. Measure comprehension accuracy, time and maintenance effort. Numerical pass thresholds must be agreed before the evaluation.
+12 MVP Acceptance Gate
+The following are candidate acceptance criteria for a future work surface, retained as design requirements. No pilot is built or commissioned by this specification; passing a review does not authorize implementation, deployment or integration.
+Stable catalog identities, separate use-case membership and authored positions, and correct restoration of each saved arrangement.
+The outer rectangle presents available stars and the inner area presents the selected architecture. Authors can place stars and document plausible connectors; explainers can highlight paths without rearranging them.
+Single and grouped stars, deterministic/probabilistic distinctions, connector metadata inspection and guided explanation are covered by the proposed behavior.
+Proposed, implemented, observed and unverified behavior can be distinguished; approval and external rights remain separate.
+Structural validation, previous-save recovery and a reviewable change record exist.
+Editable round-trip and accessible export tests pass for the declared formats and external editor.
+Security review demonstrates safe import and genuine redaction for the intended sharing scenario.
+The acceptance suite proves unapproved agent-authored revisions cannot finalize, eligible human-authored and human-approved revisions can finalize explicitly, and edited content cannot inherit stale approval/finality. Governance applies only to diagrams.
+Open decisions for Codex: numbering increments; exact AI/HUM suffix semantics; mixed-authorship attribution; identity/authentication; independent-reviewer requirements; whether agents may invoke finalization after human approval; and withdrawal effects on already finalized history. Proposed defaults above do not settle those choices. Existing open design questions include catalog boundary, repeated stars, format, connector vocabulary, accessibility and evaluation. This is a specification assignment only; building or executing represented systems remains outside scope.
+Candidate document format: uncompressed draw.io XML with documented metadata, plus SVG and text exports. This remains a format proposal subject to preservation and redaction checks. It does not select a technology stack or authorize building a custom UI.
+Source references
+Supplied template: https://docs.google.com/document/d/1GDd4wmSPgjIIdwvJrclF62bkYST04TMr/edit
+Concept and refinements: Nikodemus Corvus’s conversation, including nested rectangles, architectural diagramming and documented connectors. Latest decisions: agents may author diagrams; example version types are 1.11.AI / 1.11.HUM; an agent-authored diagram needs human approval to finalize; human-authored or human-approved diagrams may finalize. Building remains outside scope.
+draw.io format documentation: https://github.com/jgraph/drawio/wiki/File-Format
+Editable source in SVG: https://www.drawio.com/docs/manual/export/embed-svg/
+GraphML format overview: https://graphml.graphdrawing.org/primer/graphml-primer.html

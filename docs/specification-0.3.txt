@@ -1,0 +1,502 @@
+Computation Constellations Work Specification
+Candidate specification for architecture, explanation and documentation
+Prepared for Nikodemus Corvus and Bee Frontier
+Draft 0.3 — revised candidate; human review pending
+This revision replaces Draft 0.2 for discussion. It retains the twelve-section structure and incorporates the selected direction: a reusable core catalog, repeated linked appearances of stars, use-case-owned connectors, nested group views, and a documented draw.io profile.
+The specification describes a proposed work surface. Completing or approving this document does not authorize building the application, connecting external systems, deploying software or executing represented actions.
+1 Product Definition
+1.1 Product Identity
+Computation Constellations is a proposed visual authoring and review work surface for describing computational components, capabilities and relationships.
+A versioned catalog supplies reusable definitions called stars. A use case contains an authored arrangement of star appearances, documented connectors and an ordered walkthrough. The same catalog star may appear multiple times within one use case and across different use cases.
+Each view contains an outer rectangle and an inner active components area. Authors select available catalog stars, place linked appearances in the active area and draw connectors between those appearances. Each use case preserves its own layout.
+1.2 Organizational Context
+The initial audience is the author and invited readers using the work surface for personal architecture, learning and documentation. DCBS education and documentation remain possible applications, without any claim of agency adoption or deployment.
+The problem is that separate diagrams can obscure shared concepts and disconnect architectural explanations from their policies, interface descriptions and supporting evidence.
+The desired outcome is that readers can recognize reused components, understand proposed relationships, inspect their supporting detail and distinguish conceptual designs from documented implementation claims.
+1.3 Core Purpose
+The work surface supports architectural design, inspection, comparison, education and documentation.
+Its initial catalog contains a small set of reusable component definitions rather than an exhaustive taxonomy or an inventory of deployed systems. Reuse establishes a shared vocabulary. It does not establish that two appearances refer to the same physical installation, process, database or model deployment.
+Authors arrange diagrams intentionally. Explanation mode preserves those arrangements while highlighting an ordered route, including branches, exceptions and repeated visits.
+1.4 Canonical Operating Principle
+Computation Constellations describes and explains systems. External systems execute operational work.
+A connector describes a relationship. A rights reference documents a requirement or claim. A review decision approves a specific documentation revision. None of these creates an integration, grants permission or proves execution.
+ACDS may be represented where an architecture explicitly includes it. No ACDS or model integration is required by this work.
+2 System Boundaries
+2.1 In Scope
+The specification covers:
+- Stable catalog identities, reusable definitions, group membership and catalog revisions.
+- Use cases with independent appearances, connectors, layouts, nested views and walkthroughs.
+- The outer available-star area and inner active components area.
+- Intentional placement, connector authoring, metadata inspection and comparison.
+- Separate documentation review, implementation claims, evidence assessment and evidence freshness.
+- Keyboard access and equivalent searchable lists and route descriptions.
+- Proposed structural validation, local preservation, recovery, change records and exports.
+- A candidate uncompressed draw.io XML profile and a bounded external editing workflow.
+- Synthetic examples and future evaluation criteria.
+2.2 Out of Scope
+The present work produces a specification. It does not build a custom interface, parser, validator, storage service, adapter or executable workflow.
+It does not discover networks, ingest arbitrary folders, retrieve linked documents automatically, connect production data, call models, provision credentials, change permissions or execute represented operations.
+Multi-user authorization, production hosting and deployment architecture are outside this revision. GraphML remains outside the selected profile.
+Tests described below are future evaluation scenarios. Their inclusion is not evidence that software exists or that those tests have passed.
+3 Governance Invariants
+1. Source authority: Source documents remain authoritative. Copied descriptions and annotations retain provenance and remain derivative.
+2. Stable identity: Renaming a catalog star does not change its identity. Retired identifiers are not reused. Appearance identifiers are distinct from catalog identifiers.
+3. Local authorship: Changing an appearance, layout or connector affects only its owning use case. A catalog change creates a new catalog revision and identifies affected use cases; it does not silently update their pinned references.
+4. Explicit membership: Active membership is recorded separately from placement. Moving an appearance out of the active area changes its membership and flags affected connectors without silently deleting them.
+5. Group integrity: Group membership is explicit and acyclic. A star may belong to multiple groups. Group membership does not give the star a single global parent.
+6. Separate truth dimensions: Proposed design, implementation claims, evidence support, evidence freshness and documentation approval remain separate.
+7. Revision-specific approval: Approval applies to an identified revision. Subsequent material edits create a draft while preserving the previously approved revision.
+8. Limited local guarantees: Local modes and change records support review and recovery. Ordinary editable files are not a tamper-proof audit trail or a server-enforced authorization system.
+9. Inert content: Imported labels, metadata and linked text are data. Opening a map must not execute scripts, commands, custom actions or network retrieval.
+10. Physical redaction: Excluded content must be absent from exported bytes, including metadata, hidden layers, comments and embedded editable source. Visibility controls are not redaction.
+4 Roles and Authorities
+Role	Authority	Limits
+Author	Create and revise draft catalogs, use cases, appearances, connectors and annotations.	Cannot silently alter an approved revision or represent unsupported claims as verified.
+Reviewer or owner	Approve, reject or return a specific revision for changes.	Documentation approval grants no operational permission.
+Reader or learner	Inspect released views, navigate walkthroughs and deliberately open accessible references.	Reading controls do not authorize changes to a released revision.
+Proposed work surface	Render, validate, preserve revisions and produce requested exports.	Cannot infer deployment, execution or external permission from a diagram.
+Optional design assistant	Suggest descriptions and annotations for human review.	Cannot approve its own work, invent evidence or access unrelated systems.
+
+
+The initial model is single-user. One person may act as author and reviewer, with the role and decision recorded.
+These are proposed workflow boundaries. Genuine multi-user enforcement would require a separate identity and storage design.
+5 Core Workflow
+5.1 Intake
+The author deliberately creates a new draft or selects a local file using the supported profile.
+For imported files, preserve the original bytes and record the source filename or location, intake identifier, timestamp, media type, content hash and profile/parser version.
+A file that resembles a diagram but lacks the required profile must not be assigned constellation semantics by guessing from shapes or labels.
+5.2 References and Retrieval
+Labels, descriptions and links may be entered manually.
+Each reference records its relationship to the subject, target, source title, provenance and access classification. Unknown classifications remain explicit.
+A URL is a reference, not permission to retrieve content. Opening a map performs no automatic retrieval. A deliberate supported link-opening action remains subject to the destination’s access controls.
+An unchecked or unavailable reference retains that status. Its contents must not be inferred.
+5.3 Normalization
+The proposed semantic model separates:
+- Catalog definitions and group memberships.
+- Use cases pinned to catalog revisions.
+- Root and nested views.
+- Star appearances and their placements.
+- View-local connectors owned by a use case.
+- Walkthrough steps.
+- References, evidence records and review decisions.
+Normalization checks identifiers, catalog references, group cycles, view ancestry, connector endpoints, active membership and walkthrough targets.
+Unknown safe fields are retained as inert data and reported. Unsupported constructs are reported before acceptance. Unsafe constructs cause rejection. No import silently overwrites the original or an accepted revision.
+5.4 Inference
+No inference is required.
+Selection, reference checking, layout restoration, freshness calculation and export are deterministic operations. Deterministic rules, conventional software and probabilistic models remain distinct component types.
+A decision tree is classified according to its documented behavior. Its visual form alone does not establish that it is a rules engine or a probabilistic model.
+5.5 Save and Artifact Generation
+A successful save associates the draft with its catalog revision, validation report, review status and material change record.
+Structurally incomplete work may be saved as a draft with visible errors. It cannot be labeled review-ready while blocking errors remain.
+A requested export may produce:
+- An editable .drawio file.
+- A visual SVG rendition.
+- An accessible text description.
+- A manifest identifying included revisions, views and redaction scope.
+The prior accepted save remains recoverable. A failed or canceled save or export is reported accurately.
+5.6 Review Gate
+Review readiness requires valid identities and structural references, resolved active-connector inconsistencies and an identified catalog revision.
+Unknown owners, incomplete interface descriptions or unverified implementation claims may remain in an approved conceptual map when explicitly disclosed. The review decision records those limitations.
+Approval does not change evidence status. A material edit to an approved revision creates a new draft.
+6 Requirement Catalog
+REQ 001 — Available and Active Areas
+Each root view shows catalog entries within the outer rectangle and linked appearances within the inner active area. Catalog entries remain available for reuse and indicate the number of active appearances in the current view.
+Dragging a catalog entry into the active area creates a new appearance. Repositioning an existing appearance preserves its identifier.
+Acceptance: Switching between two use cases restores each arrangement and membership without changing the catalog or the other use case.
+REQ 002 — Persistent Identity, Appearances and Groups
+Catalog stars, appearances, connectors, views and walkthrough steps have distinct stable identifiers. A star can have multiple appearances and memberships in multiple groups.
+Acceptance: Renaming a star preserves references. Repeated appearances remain distinguishable. Duplicate identifiers, missing group members and cyclic group membership are rejected by structural validation.
+REQ 003 — Documented Connections and Visible State
+Connectors belong to one use case and one view. They terminate at appearance identifiers and record direction, relationship kind, conditions and claim/evidence information.
+The initial relationship vocabulary is:
+- Data flow: information passes from source to target.
+- Control flow: a trigger or decision passes from source to target.
+- Dependency: the source depends on the target; no execution order is implied.
+Opposite-direction relationships use separate connectors.
+Acceptance: A reader can identify the intended relationship and its evidence limitations without interpreting the line as a deployed integration.
+REQ 004 — Membership, Isolation and Comparison
+Moving an appearance out of the inner area makes it inactive while retaining its identity and position. It is labeled as an inactive appearance, distinct from a catalog entry.
+Affected connectors remain recorded and are flagged. The author must restore or reattach their endpoints, explicitly deactivate the connectors, or explicitly delete them. Deletion also identifies affected walkthrough steps.
+Acceptance: Editing one use case leaves other use cases unchanged. Comparison distinguishes shared catalog definitions from different appearances, relationships and layouts.
+REQ 005 — Metadata Inspection
+Stars and connectors expose description, owner, sources and contextual references.
+Connector inspection additionally exposes interface/protocol, operation, input/output contracts, transformation, trigger or condition, access and permission references, enforcement point, failure behavior, timeout/retry semantics and interface version.
+Unknown values are displayed as unknown. References do not contain credentials.
+Acceptance: A reader can distinguish operation and failure descriptions from permission claims and implementation evidence.
+REQ 006 — Nested Detail and Education
+A grouped appearance opens a separate nested view with its own saved layout. Its permitted members come from the group definition. Repeated appearances of the same group may have independent nested layouts.
+Parent connectors terminate at the group boundary. Internal connectors remain in the nested view; cross-view edges are not implicit.
+Walkthroughs contain ordered steps with their own identities and may revisit the same appearance or connector.
+Acceptance: Returning from nested detail restores the parent’s viewport and selection. Advancing a walkthrough highlights its target without rearranging the map.
+REQ 007 — Accessible Navigation
+Keyboard users can select catalog entries, create and place appearances, reposition them, create and inspect connectors, enter nested views and navigate walkthroughs.
+Visible focus, text labels and searchable star/connector lists provide alternatives to spatial and color cues.
+Acceptance: Keyboard and list-based routes expose the same information and editing actions. Text exports include route order, conditions, exceptions, component types and claim/evidence status.
+REQ 008 — Validation and Versioning
+Each use case explicitly identifies its catalog revision. Catalog changes produce a new revision and an affected-use-case report.
+Updating a use case to another catalog revision is a deliberate action with a reviewable comparison.
+Acceptance: Removed or incompatible definitions block review readiness. Labels, proximity or matching editor cell IDs never cause silent rebinding.
+REQ 009 — Evidence and Freshness
+Evidence records identify their subject and relevant revision, source, assessment, verification or observation dates when known, and any review due date.
+Missing evidence is unverified. Missing freshness information is unknown. An expired explicit review date makes the assessment stale.
+Acceptance: Removed, invalid or stale supporting evidence visibly qualifies the associated claim. Documentation approval never supplies missing evidence.
+REQ 010 — Portable Round Trip
+The selected editable profile is uncompressed draw.io XML.
+The declared external editing workflow must preserve identities, catalog references, appearances, geometry, groups, connectors, metadata, walkthroughs and revision context, except for changes deliberately made and accepted.
+Acceptance: Semantic comparison reports intended changes and unintended loss before an edited import can replace an accepted revision. Compatibility is claimed only for a tested editor version and supported workflow.
+REQ 011 — Safe Import and Export
+Imports reject executable or unsupported active constructs, external entities, unsafe URLs and resource-exhausting input. Opening a file performs no unapproved network access.
+Limited-audience exports are generated from explicitly filtered content.
+Acceptance: Excluded information is absent from visible output, metadata, hidden content, comments, linked identifiers and embedded editable source.
+REQ 012 — Changes and Recovery
+Material edits, imports, review decisions and exports are associated with their subject revision. A previous accepted save remains recoverable.
+Acceptance: Failed or canceled operations leave the accepted revision usable and do not produce a success claim.
+7 Golden Path
+7.1 Deterministic Request Triage
+Purpose: Explain how deterministic rules select an action and how its result or exception is recorded.
+The author creates appearances for request input, deterministic rules, an action service, a record store and human review. The author arranges them, documents their connectors and prepares a walkthrough.
+The main route is:
+Request input → deterministic rules → action service → record store
+An unresolved rule outcome leads to human review. An action failure follows an explicitly documented exception path. No probabilistic component is required.
+The rules and action service may also be represented as a group. Opening that group reveals their internal relationship without moving the parent diagram.
+7.2 Document Enrichment with Human Review
+Purpose: Explain the different roles of conventional processing, probabilistic suggestions and human judgment.
+The route is:
+Document input → conventional extraction → probabilistic suggestion → human review → accepted record
+The diagram documents that a model suggestion is not an approved fact. Rejected or uncertain suggestions follow a correction route and may return to human review.
+An enrichment group contains the extraction, model and review members. Its summary identifies those constituent types and the presence of probabilistic behavior.
+7.3 Event-Driven Record Reconciliation
+Purpose: Explain conventional event handling and comparison without an LLM.
+The route is:
+Change event → conventional comparison → deterministic reconciliation rules → record update
+Exceptions lead to review or a documented retry path. Separate appearances of the reusable record-store star can represent source, destination or exception roles. Those appearances do not establish whether the roles use one physical database or several.
+All three examples are synthetic architecture descriptions. They assert no live requests, writes, model calls or organizational deployment.
+8 DASL Contract
+The template retains the heading “DASL.” The following is an illustrative documentation contract. It makes no claim of independently verified DASL conformance and defines no executable API.
+contract_id: CC-USECASE-REVIEW-001
+contract_name: PrepareUseCaseConstellation
+contract_status: candidate_documentation_only
+
+input:
+  catalog_id: CC-CATALOG-001
+  catalog_revision: "0.1"
+  use_case_id: UC-TRIAGE
+  root_view_id: V-ROOT
+  views: authored root and nested views
+  appearances: stable instance IDs and catalog references
+  connectors: local appearance endpoints and descriptions
+  walkthrough: ordered steps with stable IDs
+
+output:
+  use_case_revision: next draft revision
+  validation_report: blocking errors and warnings
+  review_status: draft or review_ready
+
+invariants:
+  - original import and prior accepted revisions remain recoverable
+  - catalog references resolve against the declared revision
+  - each connector belongs to one use case and one view
+  - connector endpoints resolve to appearances in that view
+  - authored layouts remain independent
+  - review and implementation evidence remain separate
+  - no external execution or permission is granted
+
+failure:
+  invalid_reference: retain draft with errors; block review_ready
+  unsafe_import: reject without execution or network retrieval
+  semantic_loss: report differences before replacement
+  storage_error: preserve prior accepted save and report failure
+
+approval:
+  documentation_release: explicit decision on a specific revision
+  operational_permission: outside this contract
+9 Data Structure
+9.1 Semantic Records
+Record	Identity and principal relationships
+Catalog	catalog_id, revision, star definitions and group memberships.
+Catalog star	star_id, label, component type, description, owner and references.
+Group membership	Membership identifier, group star identifier and member star identifier.
+Use case	use_case_id, revision, pinned catalog identifier/revision and root view.
+View	view_id, owning use case, optional parent group appearance, outer/active bounds and saved orientation.
+Appearance	instance_id, catalog star_id, owning view, optional local role/label, active membership and geometry.
+Connector	connector_id, owning view, source/target appearance identifiers, relationship kind and descriptive metadata.
+Walkthrough step	step_id, order, target view, target appearance or connector, and explanatory text.
+Reference	Identifier, subject, relationship, target, source title, provenance and access classification.
+Evidence	Identifier, subject/revision, source reference, assessment and relevant dates.
+Review decision	Identifier, subject/revision, reviewer, decision, date and limitations.
+
+
+Identifiers are unique within the document’s semantic record set and retained across its revision lineage. They are independent of draw.io cell identifiers.
+The specification version, file-profile version, catalog revision and use-case revision are separate values.
+The term use case replaces “overlay” as the primary term because each use case owns appearances, connectors and layouts. Draft 0.2’s catalog-level flows require explicit reassignment during any future conversion; no automatic backward compatibility is claimed.
+9.2 Initial Reusable Catalog
+The initial core includes these component types:
+Type	Meaning
+Input	A described source of requests or documents.
+Deterministic rules	Explicit rules producing documented outcomes.
+Conventional service	Ordinary software performing a described operation.
+Record store	A persistent information-storage role.
+Probabilistic model	A component producing probabilistic or model-generated outputs.
+Human role	A review, approval or intervention role.
+Event source	A source of a documented event or trigger.
+Group	A named composition of catalog members.
+
+
+Groups list their constituent types. They do not conceal probabilistic participation behind a generic group label.
+A nested view selects appearances from its group’s declared members. Adding a different member changes the group definition through a new catalog revision.
+9.3 Connector Metadata
+Each connector records:
+- Identity, owning use case/view and local source/target appearances.
+- Relationship kind and source-to-target direction.
+- Condition and ordinary or exception-path role.
+- Description and owner.
+- Interface/protocol, operation and interface version.
+- Input/output contract and transformation references.
+- Access, required-permission and policy references.
+- Identified enforcement point.
+- Failure, timeout and retry descriptions or references.
+- Design intent, implementation claim and supporting evidence references.
+A shared interface reference is a link to common documentation. It does not make the connectors themselves shared objects.
+Missing optional descriptions display as unknown. Invalid structural information is an error. These conditions are not interchangeable.
+9.4 Claim, Evidence and Review State
+Dimension	Meaning
+Design intent	proposed or as_documented: whether the diagram proposes behavior or describes behavior claimed to exist.
+Implementation claim	unknown, implemented or observed: the claim being documented, including its subject and relevant version.
+Evidence assessment	unverified or supported: whether identified evidence has been assessed as supporting that specific claim.
+Freshness	unknown, within_review_period or stale, based on recorded assessment and review dates.
+Documentation review	draft, review_ready, approved, changes_requested or rejected, tied to a revision.
+
+
+An implementation claim remains visibly qualified by its evidence assessment and freshness. A URL alone does not establish support.
+“Observed” describes an observation at a recorded time or interval. It does not establish continuous operation.
+No universal evidence-expiration interval is assumed. Without an explicit review due date, freshness remains unknown. Evidence describing an existing system does not overwrite a proposed design.
+9.5 Illustrative Record
+The following identity-and-layout excerpt demonstrates repeated appearances and nested detail. It is not a complete importable file. Connector metadata and evidence records are omitted from the excerpt; every represented relationship in this example is proposed and unverified.
+{
+  "profile_version": "cc-drawio-0.3-draft",
+  "catalog": {
+    "catalog_id": "CC-CATALOG-001",
+    "revision": "0.1",
+    "stars": [
+      {
+        "star_id": "S-DECISION",
+        "label": "Deterministic rules",
+        "type": "deterministic_rules"
+      },
+      {
+        "star_id": "S-ACTION",
+        "label": "Action service",
+        "type": "conventional_service"
+      },
+      {
+        "star_id": "S-RECORD",
+        "label": "Record store",
+        "type": "record_store"
+      },
+      {
+        "star_id": "S-GROUP",
+        "label": "Decision and action",
+        "type": "group",
+        "member_star_ids": ["S-DECISION", "S-ACTION"]
+      }
+    ]
+  },
+  "use_case": {
+    "use_case_id": "UC-TRIAGE",
+    "revision": "0.1-draft",
+    "catalog_id": "CC-CATALOG-001",
+    "catalog_revision": "0.1",
+    "root_view_id": "V-ROOT",
+    "views": [
+      {
+        "view_id": "V-ROOT",
+        "parent_instance_id": null,
+        "active_area": {"x": 100, "y": 100, "width": 800, "height": 500},
+        "instances": [
+          {"instance_id": "I-GROUP", "star_id": "S-GROUP",
+           "active": true, "x": 240, "y": 180},
+          {"instance_id": "I-SUCCESS", "star_id": "S-RECORD",
+           "role": "Success destination",
+           "active": true, "x": 640, "y": 180},
+          {"instance_id": "I-EXCEPTION", "star_id": "S-RECORD",
+           "role": "Exception destination",
+           "active": true, "x": 640, "y": 340}
+        ],
+        "connectors": [
+          {"connector_id": "F-SUCCESS",
+           "source_instance_id": "I-GROUP",
+           "target_instance_id": "I-SUCCESS",
+           "kind": "data_flow", "condition": "action completed"},
+          {"connector_id": "F-EXCEPTION",
+           "source_instance_id": "I-GROUP",
+           "target_instance_id": "I-EXCEPTION",
+           "kind": "data_flow", "condition": "action failed"}
+        ]
+      },
+      {
+        "view_id": "V-DETAIL",
+        "parent_instance_id": "I-GROUP",
+        "active_area": {"x": 100, "y": 100, "width": 800, "height": 500},
+        "instances": [
+          {"instance_id": "I-RULES", "star_id": "S-DECISION",
+           "active": true, "x": 240, "y": 240},
+          {"instance_id": "I-ACTION", "star_id": "S-ACTION",
+           "active": true, "x": 600, "y": 240}
+        ],
+        "connectors": [
+          {"connector_id": "F-DECISION",
+           "source_instance_id": "I-RULES",
+           "target_instance_id": "I-ACTION",
+           "kind": "control_flow",
+           "condition": "decision permits action"}
+        ]
+      }
+    ]
+  }
+}
+The associated walkthrough is:
+Step	View	Target	Explanation
+STEP-1	V-ROOT	I-GROUP	Inspect the decision and action group.
+STEP-2	V-DETAIL	F-DECISION	Explain the permitted action.
+STEP-3	V-ROOT	F-SUCCESS	Explain the success destination.
+STEP-4	V-ROOT	I-GROUP	Revisit the group to explain exceptions.
+STEP-5	V-ROOT	F-EXCEPTION	Explain the exception destination.
+
+
+The two record-store appearances share a catalog definition while retaining distinct identities, roles and endpoints. Their physical deployment relationship remains unspecified.
+9.6 Candidate draw.io Profile
+Profile identifier: cc-drawio-0.3-draft
+The selected container is an uncompressed .drawio XML file with an mxfile root and an uncompressed graph model for each page. draw.io documents these structures and supports user objects carrying custom properties. The constellation mapping below is a proposed profile, not a claim of tested preservation. Official file-format documentation
+Page organization
+- One catalog page holds catalog definitions and group membership records.
+- Each root or nested view occupies its own page.
+- The root page also holds its use-case record.
+- Supporting records use a named CC metadata layer on their owning page.
+- Metadata-layer visibility has no effect on inclusion in the editable file.
+Property mapping
+Content	Profile representation
+Record type and identity	cc_kind and cc_id on a user object.
+Profile and revisions	Explicit cc_profile_version, cc_revision, cc_catalog_id and cc_catalog_revision where applicable.
+View ownership	cc_use_case_id, cc_view_id and optional cc_parent_instance_id.
+Catalog references	cc_star_id; catalog-entry shapes are reference objects, not duplicate definitions.
+Appearance membership	cc_active, with a separate appearance identifier.
+Connector endpoints	cc_source_instance_id and cc_target_instance_id, checked against native edge terminals.
+Descriptive scalar fields	Documented cc_ properties such as cc_operation and cc_condition.
+Repeated relationships	Separate membership, reference, evidence or step objects with their own identifiers and subject references.
+Step ordering	cc_order, cc_target_view_id and cc_target_id.
+Geometry	Native draw.io geometry for bounds, positions, dimensions and connector waypoints.
+
+
+Custom properties use the cc_ prefix rather than reserved editor properties. draw.io supports custom metadata on shapes and connectors; its editor’s id is not the constellation identity. Official metadata documentation
+Profile values are escaped XML attributes. Required identifiers cannot be empty. Absent optional values mean unknown; booleans use true or false. Repeated records are represented separately, without introducing a JSON storage file.
+All appearances and area boundaries use coordinates in their view’s coordinate system. Native geometry is authoritative for placement. Recorded active membership must agree with the active-area bounds; inconsistencies are reported rather than silently resolved.
+A catalog label edit renames a definition. An appearance label edit changes only its local display label. Both retain their semantic identifiers.
+Unknown safe custom properties are preserved and reported. Unrecognized semantic record types prevent a compatibility claim until their treatment is resolved. Compressed pages, executable actions, external resources and arbitrary active content are outside this profile.
+9.7 External Editing and Export Contract
+The bounded draw.io Desktop workflow is:
+1. Preserve the original profile file.
+2. Record the editor version and operating environment.
+3. Open the file.
+4. Rename labels, reposition appearances within their existing membership area, or edit documented descriptive fields.
+5. Save an uncompressed copy.
+6. Reopen through the proposed profile reader and compare semantics.
+7. Review intended changes and any loss before accepting a new draft revision.
+Changing identities, reconnecting edges, altering groups or moving appearances across membership boundaries is outside this initial external-editing workflow. Such changes must be reported for explicit reconciliation.
+Changing draw.io cell IDs alone does not change constellation identities, provided native terminals still resolve consistently. Conflicts between semantic endpoint references and native edge terminals block acceptance.
+SVG viewing exports contain only intended visual content. draw.io can embed editable diagram XML in SVG, so limited-audience exports must explicitly omit that source and inspect the resulting bytes. Official SVG documentation
+Accessible text exports preserve route order, branch conditions, nested context, component distinctions and evidence qualifications. Redaction also applies to text, manifests and metadata; excluded names or identifiers must not reappear through dangling references.
+10 Screen Specification
+Screen or mode	Proposed behavior
+Capture	Create a draft or select a local profile file. Show source information, profile recognition and an import preview. Preserve original bytes and report unsafe or unsupported constructs.
+Processing	Show source capture, safe parsing, identity checks, group/view checks, endpoint checks and readiness. Present affected identifiers and cancellation. No fictitious inference stage appears.
+Review — design	Show available catalog entries, active and inactive appearances, nested bounds and documented connectors. Provide drag placement and equivalent keyboard actions.
+Review — explanation	Preserve the authored layout, highlight ordered steps and expose conditions and exceptions. Enter nested views and restore parent orientation on return.
+Inspector	Show catalog identity and local appearance identity separately. Expose component type, local role, connector contracts, access references, evidence and review information.
+Library	Find catalogs, use cases and revisions by title, type, owner or status. Show pinned catalog revisions and validation currency. Opening history does not replace the working revision.
+Export	Select views, audience and included content; preview redaction and output types. Report completion only after successful artifact creation.
+
+
+The outer catalog area is a reusable source of entries. Active and inactive appearances are separately labeled. Search and list views expose the same distinctions.
+11 Test Catalog
+Every test below is proposed and unperformed against an application.
+Unit Scenarios
+ID	Scenario	Requirements
+UT 01	Rename a catalog star and preserve its identity, appearance links and valid references.	002
+UT 02	Switch use cases and restore their independent layouts, membership and local connector data.	001, 004
+UT 03	Detect duplicate identifiers, dangling endpoints, incompatible catalog references, group cycles and unresolved connectors after deactivation.	002, 004, 008
+UT 04	Change documentation review status without changing design intent, implementation claims or evidence assessment.	003, 009
+UT 05	Serialize a redacted output and confirm excluded records, metadata and embedded source are absent.	011
+UT 06	Distinguish repeated appearances, validate nested ownership and preserve repeated walkthrough targets.	002, 006
+UT 07	Remove evidence or pass its recorded review due date and display unverified or stale status appropriately.	009
+
+
+Integration Scenarios
+ID	Scenario	Requirements
+IT 01	Author a diagram, document connectors, prepare a walkthrough, review it, export editable and text forms, and reopen with its semantics intact.	001, 005, 007, 010
+IT 02	Perform the declared draw.io Desktop workflow and compare identities, geometry, groups, metadata, walkthroughs and references. Record editor version and unsupported behavior.	010
+IT 03	Fail or cancel save/export and confirm the prior accepted revision remains usable and no success is reported.	012
+IT 04	Change a catalog definition, identify affected use cases and require explicit revision reconciliation without silently changing their layouts or connectors.	004, 008
+
+
+These are diagram lifecycle tests, not tests of operational system integrations.
+Red-Team Scenarios
+ID	Scenario	Requirements
+RT 01	Treat instructions appearing in labels, metadata and linked text as content rather than authority.	011
+RT 02	Reject external entities, script-bearing content, unsafe URLs, path traversal, custom actions and input exceeding documented parser resource limits without execution or unapproved access.	011
+RT 03	Inspect hidden layers, comments, metadata, removed references and embedded XML for leakage after redaction.	011
+RT 04	Attempt to promote a proposed or unverified relationship by changing an unrelated review badge; confirm the claim remains separately qualified.	003, 009
+
+
+UI Scenarios
+ID	Scenario	Requirements
+UI 01	Use only the keyboard to create, place and reposition appearances, create/select connectors and inspect metadata with visible focus.	001, 007
+UI 02	Distinguish membership, component types and claim/evidence status without relying on color.	003, 004, 007
+UI 03	Enter nested detail, navigate a walkthrough across views and restore parent orientation.	006
+UI 04	Follow success and exception routes and locate operation, contracts, access references, failure behavior, owner and evidence without interpreting the diagram as executable.	005, 006
+UI 05	Compare the three synthetic use cases with conventional diagrams, measuring comprehension accuracy, completion time and maintenance effort.	004
+
+
+For UI 05, participants, tasks, comparison materials and numerical pass thresholds must be agreed before evaluation. No effectiveness result is asserted in this revision.
+12 MVP Acceptance Gate
+12.1 Present Documentation Completion
+Completion of this revision requires:
+- A coherent twelve-section candidate specification.
+- Recorded decisions about catalog scope, repeated appearances, connector ownership, group navigation and editable format.
+- Consistent definitions across requirements, examples, screen descriptions and proposed tests.
+- A documented draw.io profile and bounded compatibility claim.
+- Clear separation between completed editorial checks and future software evaluation.
+Current status: Draft 0.3 has been prepared. Editorial reference checks found no unresolved identifiers in the worked example’s four catalog definitions, two views, five appearances, three connectors and five walkthrough steps. The proposed test mapping covers all twelve requirements.
+Human acceptance of the revised candidate remains pending.
+12.2 Future Work-Surface Acceptance
+A future application would require evidence that:
+- Stable identities, repeated appearances and independent layouts behave as specified.
+- Nested views and walkthroughs preserve authored orientation.
+- Connectors remain local and expose the required descriptive metadata.
+- Review status, implementation claims and evidence remain independent.
+- Structural validation, recovery and change records work.
+- The declared editable round trip and accessible exports pass.
+- Import protections and physical redaction pass security evaluation.
+- Agreed comparative evaluation thresholds are met.
+- A human reviewer accepts the evaluated release and its documented limitations.
+None of these future application gates has been demonstrated by preparing this document. No application, draw.io round trip, security test or usability evaluation was executed.
+12.3 Decision Register
+Decision	Draft 0.3 position
+Application name	Retain Computation Constellations provisionally.
+Initial audience	Personal architecture, learning and documentation.
+Catalog boundary	Small, extensible reusable core with synthetic examples.
+Repeated stars	Multiple linked appearances with independent placement and endpoints.
+Connector ownership	One use case and one view; optional shared documentation references.
+Group navigation	Separate nested views with independent layouts and an explicit return path.
+Group membership	Explicit, reusable memberships; cycles prohibited.
+Connector vocabulary	Data flow, control flow and dependency.
+Editable format	Candidate uncompressed draw.io XML profile.
+External editor	Bounded draw.io Desktop workflow; exact version recorded during future evaluation.
+Roles	Single-user author/reviewer workflow; no multi-user enforcement claim.
+Evidence freshness	Explicit review dates; unknown when insufficiently documented; no universal expiry interval.
+Accessibility	Keyboard parity, visible focus, non-color distinctions and equivalent searchable/text representations.
+Present acceptance	Documentation completeness and consistency, followed by human review.
+Future evaluation	Unperformed; thresholds agreed before testing.
+Build authority	No authority to build, deploy, connect or execute represented systems.
+
+
+Source basis: The supplied Draft 0.2, the design decisions confirmed in this conversation, and the official draw.io documentation cited above. The original template reference is retained from Draft 0.2; it was not independently reviewed for this revision.

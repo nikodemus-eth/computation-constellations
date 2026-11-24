@@ -1,0 +1,34 @@
+COMPUTATION CONSTELLATIONS — 17-STAR STANDALONE EDITION
+
+This offline desktop app opens the 17-star candidate master, with Rules-led
+triage and Governed model explanation examples. No Node.js installation,
+terminal server, account or Internet connection is needed to use the app.
+
+Windows x64: Extract the entire ZIP, then open Computation Constellations.exe.
+Keep its accompanying files and directories together.
+macOS: Extract the ZIP for your processor (arm64 = Apple silicon; x64 = Intel).
+Move Computation Constellations.app to Applications and open it.
+Linux x64: Extract the tar.gz archive and launch computation-constellations.
+Desktop libraries must be available; no Node.js installation is required.
+Do not disable Chromium's sandbox. Consult your distribution's Electron
+sandbox requirements if launching is blocked.
+
+This is a development distribution without publisher signing or notarization.
+Mac bundles have a local ad-hoc integrity signature, not a verified publisher. Your operating system may require an explicit trust decision or
+block the app. Publisher signing is not included in these builds.
+
+YOUR DIAGRAMS
+The app has its own persistent local profile, separate from your web browser.
+To transfer browser edits, export a private editable .drawio file in the
+browser app, then choose Import diagram in this app. Imported revisions open
+as drafts; approval claims do not become verified authority.
+Use Save for local storage and Export for portable backups. Keep a backup
+before deleting the app profile or moving to another machine. Clearing the
+app profile deletes its local workspace. No automatic update service runs.
+
+Both the original workspace and the 17-star workspace are included, but the
+17-star workspace opens by default. Their local saves remain separate.
+
+All model descriptions and paths are documentation. The app does not execute
+models, device feeds, APIs or database operations. Finalization is blocked
+without trusted human identity and an authoritative approval service.

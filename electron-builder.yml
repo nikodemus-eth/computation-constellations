@@ -1,0 +1,32 @@
+appId: org.computationconstellations.desktop
+productName: Computation Constellations
+artifactName: Computation-Constellations-17-Stars-${version}-${os}-${arch}.${ext}
+asar: true
+directories:
+  output: dist
+files:
+  - desktop/main.cjs
+  - index.html
+  - styles.css
+  - src/**
+  - package.json
+extraResources:
+  - from: desktop/READ-ME.txt
+    to: READ-ME.txt
+mac:
+  target:
+    - target: zip
+      arch: [arm64, x64]
+  category: public.app-category.productivity
+  identity: "-"
+win:
+  target:
+    - target: zip
+      arch: [x64]
+  signAndEditExecutable: false
+linux:
+  target:
+    - target: tar.gz
+      arch: [x64]
+  category: Office
+  executableName: computation-constellations
