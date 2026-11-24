@@ -1,6 +1,6 @@
 # Computation Constellations
 
-A local-first architecture authoring and explanation workspace, built from the supplied Draft 0.3. The user's subsequent instruction authorizes building this product; the supplied specification is retained unchanged in `docs/specification-0.3.txt` for provenance. The application never executes the systems represented by its diagrams.
+A local-first architecture authoring and explanation workspace. The application never executes the systems represented by its diagrams.
 
 ## Run
 
